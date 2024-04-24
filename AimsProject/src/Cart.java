@@ -13,6 +13,17 @@ public class Cart {
 		}
 	}
 	
+	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+		for(DigitalVideoDisc disc: dvdList) {
+			addDigitalVideoDisc(disc);
+		}
+	}
+
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		addDigitalVideoDisc(dvd1);
+		addDigitalVideoDisc(dvd2);
+	}
+	
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		if (qtyOrdered == 0) {
 			System.out.println("There are no disks in the cart.");
