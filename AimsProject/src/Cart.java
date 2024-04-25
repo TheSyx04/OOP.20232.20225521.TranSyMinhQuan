@@ -60,7 +60,36 @@ public class Cart {
 			System.out.println();
 		} else {
 			System.out.println("Your cart has no disk.");
+		}	
+	}
+	
+	public void print() {
+		System.out.println("***********************CART***********************");
+		System.out.println("Ordered Items:");
+		for (int i = 0; i < qtyOrdered; i++) {
+			System.out.println(itemsOrdered[i].toString());
 		}
-		
+		System.out.println("Total cost: " + totalCost() + "$");
+		System.out.println("***************************************************");
+	}
+	
+	public void searchByID(int id) {
+		String str = "No disk found.";
+		for (int i = 0; i < qtyOrdered; i++) {
+			if (itemsOrdered[i].getID() == id) {
+				str = itemsOrdered[i].toString();
+			}
+		}
+		System.out.println(str);
+	}
+	
+	public void searchByTitle(String title) {
+		String str = "No disk found.";
+		for (int i = 0; i < qtyOrdered; i++) {
+			if (itemsOrdered[i].isMatch(title)) {
+				str = itemsOrdered[i].toString();
+			}
+		}
+		System.out.println(str);
 	}
 }

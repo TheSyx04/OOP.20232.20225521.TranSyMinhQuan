@@ -67,10 +67,25 @@ public class DigitalVideoDisc {
 		this.id = nbDigitalVideoDiscs;
 	}
 	
+	public boolean isMatch(String title) {
+		return this.title.equals(title);
+	}
+	
+	@Override
+	public String toString() {
+		String res = id + ". DVD - " + title;
+		res += (category == null) ? "" : (" - " + category);
+		res += (director == null) ? "" : (" - " + director);
+		res += (length == 0) ? "" : (" - " + length);
+		res += (": " + cost + "$");
+		return res;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(category, cost, director, length, title);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

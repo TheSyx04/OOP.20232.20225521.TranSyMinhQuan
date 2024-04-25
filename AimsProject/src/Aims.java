@@ -17,13 +17,13 @@ public class Aims {
 		System.out.println(String.format("Total Cost is: %.3f",anOrder.totalCost()));
 		
 // 		The method checkCart is implemented to test question 11 only.
-		anOrder.removeDigitalVideoDisc(dvd3);
-		anOrder.checkCart();
-		
-		anOrder.removeDigitalVideoDisc(dvd2);
-		anOrder.checkCart();
-		
-		anOrder.removeDigitalVideoDisc(dvd1);
-		anOrder.checkCart();
+//		anOrder.removeDigitalVideoDisc(dvd3);
+//		anOrder.checkCart();
+//		
+//		anOrder.removeDigitalVideoDisc(dvd2);
+//		anOrder.checkCart();
+//		
+//		anOrder.removeDigitalVideoDisc(dvd1);
+//		anOrder.checkCart();
 	}
 }
