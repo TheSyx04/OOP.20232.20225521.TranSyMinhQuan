@@ -1,4 +1,4 @@
-package hust.soict.dsai.aims.disc;
+	package hust.soict.dsai.aims.disc;
 
 import java.util.Objects;
 
