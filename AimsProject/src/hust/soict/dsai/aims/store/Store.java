@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Store {
 	private ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<DigitalVideoDisc>();
@@ -29,7 +29,7 @@ public class Store {
 	public void searchByID(int id) {
 		String str = "No disk found.";
 		for (DigitalVideoDisc dvd: itemsInStore) {
-			if (dvd.getID() == id) {
+			if (dvd.getId() == id) {
 				str = dvd.toString();
 			}
 		}
