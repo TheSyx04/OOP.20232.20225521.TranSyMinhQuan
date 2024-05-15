@@ -19,8 +19,4 @@ public class Disc extends Media{
 		this.director = director;
 	}
 
-	public Disc() {
-		// TODO Auto-generated constructor stub
-	}
-
 }

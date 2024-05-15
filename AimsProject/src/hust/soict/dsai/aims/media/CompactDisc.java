@@ -3,7 +3,7 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc extends Disc{
+public class CompactDisc extends Disc implements Playable{
 
 	private String artist;
 	private List<Track> tracks = new ArrayList<Track>();
@@ -34,6 +34,14 @@ public class CompactDisc extends Disc{
 			System.out.println("The track has been removed!");
 		} else {
 			System.out.println("The track is not in the list!");
+		}
+	}
+	
+	public void play() {
+		for (Track track: tracks) {
+			System.out.println("Track " + tracks.indexOf(track) + ": ");
+			track.play();
+			System.out.println("");
 		}
 	}
 	
