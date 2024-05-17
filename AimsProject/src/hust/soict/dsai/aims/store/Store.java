@@ -2,35 +2,40 @@ package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
 
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
-	private ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<DigitalVideoDisc>();
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
-	public void addDVD(DigitalVideoDisc dvd) {
-		itemsInStore.add(dvd);
-		System.out.println("The disc has been added.");
+	public void addMedia(Media media) {
+		if (itemsInStore.contains(media)) {
+			System.out.println("This media is already in the order!");
+		} else {
+			itemsInStore.add(media);
+			System.out.println("The media has been added!");
+		}
 	}
 	
-	public void removeDVD(DigitalVideoDisc dvd) {
-		if (itemsInStore.contains(dvd)) {
-			itemsInStore.remove(dvd);
-			System.out.println("The disc has been removed");
+	public void removeMedia(Media media) {
+		if (itemsInStore.contains(media)) {
+			itemsInStore.remove(media);
+			System.out.println("The media has been removed from the order!");
 		} else {
-			System.out.println("The disc is not in the store to be removed");
+			System.out.println("The media is not in the order");
 		}
 	}
 	
 	public void checkStore() {
-		for(DigitalVideoDisc dvd: itemsInStore) {
-			System.out.println(dvd.toString());
+		for(Media media: itemsInStore) {
+			System.out.println(media.toString());
 		}
 	}
 	
 	public void searchByID(int id) {
 		String str = "No disk found.";
-		for (DigitalVideoDisc dvd: itemsInStore) {
-			if (dvd.getId() == id) {
-				str = dvd.toString();
+		for (Media media: itemsInStore) {
+			if (media.getId() == id) {
+				str = media.toString();
 			}
 		}
 		System.out.println(str);
@@ -38,9 +43,9 @@ public class Store {
 	
 	public void searchByTitle(String title) {
 		String str = "No disk found.";
-		for (DigitalVideoDisc dvd: itemsInStore) {
-			if (dvd.isMatch(title)) {
-				str = dvd.toString();
+		for (Media media: itemsInStore) {
+			if (media.getTitle().equals(title)) {
+				str = media.toString();
 			}
 		}
 		System.out.println(str);
