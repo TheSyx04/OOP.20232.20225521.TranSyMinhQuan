@@ -11,14 +11,11 @@ public abstract class Media {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;
 	}
-
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -27,17 +24,10 @@ public abstract class Media {
 		return category;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
 	public float getCost() {
 		return cost;
 	}
 
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
 
 	public Media() {
 		// TODO Auto-generated constructor stub

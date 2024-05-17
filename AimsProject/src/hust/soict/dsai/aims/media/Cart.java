@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 
 public class Cart {
+	public static final int MAX_NUMBERS_ORDERED = 20;
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
 	public float totalCost() {
@@ -16,6 +17,8 @@ public class Cart {
 	public void addMedia(Media media) {
 		if (itemsOrdered.contains(media)) {
 			System.out.println("This media is already in the order!");
+		} else if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
+			System.out.println("The order is full, cannot add new media!");
 		} else {
 			itemsOrdered.add(media);
 			System.out.println("The media has been added!");

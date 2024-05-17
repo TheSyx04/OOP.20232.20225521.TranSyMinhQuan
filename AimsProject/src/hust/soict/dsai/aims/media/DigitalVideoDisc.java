@@ -7,12 +7,6 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	private int length;
 	private static int nbDigitalVideoDiscs = 0;
 	
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
 	public DigitalVideoDisc(String title) {
 		this(title, null, null, 0, 0.0f);
 	}
