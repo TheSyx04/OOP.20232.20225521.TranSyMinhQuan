@@ -1,11 +1,7 @@
-package main;
+package hust.soict.dsai.aims.media;
 
 import java.util.Scanner;
 
-import hust.soict.dsai.aims.media.Cart;
-import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
@@ -70,8 +66,13 @@ public class Aims {
 		Scanner sc = new Scanner(System.in);
 		
 		Store store = new Store();
+		store.addMedia(new DigitalVideoDisc(1, "The Lion King", "Animated", 15.5f));
+		store.addMedia(new DigitalVideoDisc(2, "Aladin", "Animated", 35.2f));
+		store.addMedia(new DigitalVideoDisc(3, "Star Wars", "Animated", 55.6f));
+		
 		Cart cart = new Cart();
-		int opt = -1; int storeOpt = -1; int mediaOpt = -1; int cartOpt = -1; int filterOpt = -1; int sortOpt = -1;
+		int opt = -1; int storeOpt = -1; int mediaOpt = -1; int cartOpt = -1; 
+		int updateOpt = -1; int filterOpt = -1; int sortOpt = -1;
 	    do {
             showMenu();
             opt = sc.nextInt();
@@ -84,7 +85,7 @@ public class Aims {
                         switch (storeOpt) {
                             case 1: //1. See a media’s details
                                 System.out.print("Enter the media's title: ");
-                                String title = sc.next();
+                                String title = sc.nextLine();
                                 Media media = store.searchByTitle(title);
                                 if (media != null) {
                                     media.toString();
@@ -123,7 +124,7 @@ public class Aims {
                                 
                             case 2: // Add media to cart
                                 System.out.print("Enter the media's title: ");
-                                title = sc.next();
+                                title = sc.nextLine();
                                 media = store.searchByTitle(title);
                                 if (media != null) {
                                     cart.addMedia(media);
@@ -136,7 +137,7 @@ public class Aims {
                                 
                             case 3: // Play a media
                                 System.out.print("Enter title of media: ");
-                                title = sc.next();
+                                title = sc.nextLine();
                                 media = store.searchByTitle(title);
                                 if (media != null) {
                                 	if (media instanceof DigitalVideoDisc ) {
@@ -166,19 +167,19 @@ public class Aims {
                     break;
 
                 case 2: // Update store
-                    int updateOpt = sc.nextInt();
+                	updateStoreMenu();
+                    updateOpt = sc.nextInt();
                     do{
-                    	updateStoreMenu();
                         switch (updateOpt) {
                             case 1: // Add media to store
                             	Media media;
                                 System.out.println("Enter the media's details: ");
                                 System.out.println("- Type: DVD or CompactDisc?");
-                                String type = sc.next();
+                                String type = sc.nextLine();
                                 System.out.println("- Title: ");
-                                String title = sc.next();
+                                String title = sc.nextLine();
                                 System.out.println("- Category: ");
-                                String category = sc.next();
+                                String category = sc.nextLine();
                                 System.out.println("- Cost: ");
                                 float cost = sc.nextFloat();
                                 int id = store.getNumber();
@@ -192,7 +193,7 @@ public class Aims {
                                 
                             case 2: // Remove media from store
                                 System.out.println("Enter the media's title: ");
-                                title = sc.next();
+                                title = sc.nextLine();
                                 media = store.searchByTitle(title);
                                 store.removeMedia(media);
                                 break;
@@ -203,6 +204,7 @@ public class Aims {
                             	System.out.println("Invalid option! Please choose a number: 0-1-2");
                         }
                     } while (updateOpt != 0);
+                    break;
                     
                 case 3: // See current cart
                     cart.print();
@@ -218,7 +220,7 @@ public class Aims {
                                     int filterId = sc.nextInt();
                                     media = cart.searchByID(filterId);
                                 } else {
-                                    String filterTitle = sc.next();
+                                    String filterTitle = sc.nextLine();
                                     media = cart.searchByTitle(filterTitle);
                                 }
                                 if (media != null) {
@@ -243,7 +245,7 @@ public class Aims {
                                 
                             case 3: // Remove media from cart
                                 System.out.print("Enter the media's title: ");
-                                String title = sc.next();
+                                String title = sc.nextLine();
                                 media = cart.searchByTitle(title);
                                 if(media != null){
                                     cart.removeMedia(media);
@@ -256,7 +258,7 @@ public class Aims {
                                 
                             case 4: // Play a media
                                 System.out.print("Enter the media's title: ");
-                                title = sc.next();
+                                title = sc.nextLine();
                                 media = cart.searchByTitle(title);
                                 if (media instanceof DigitalVideoDisc ) {
                                     ((DigitalVideoDisc) media).play();
