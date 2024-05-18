@@ -1,10 +1,15 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	
+	public int getNumber() {
+		return itemsOrdered.indexOf(itemsOrdered.getLast()) + 1;
+	}
 	
 	public float totalCost() {
 		float sum = 0f;
@@ -44,23 +49,31 @@ public class Cart {
 		System.out.println("***************************************************");
 	}
 	
-	public void searchByID(int id) {
-		String str = "No disk found.";
+	public Media searchByID(int id) {
 		for (int i = 0; i < itemsOrdered.size(); i++) {
 			if (itemsOrdered.get(i).getId() == id) {
-				str = itemsOrdered.get(i).toString();
+				return itemsOrdered.get(i);
 			}
 		}
-		System.out.println(str);
+		return null;
 	}
 	
-	public void searchByTitle(String title) {
-		String str = "No disk found.";
+	public Media searchByTitle(String title) {
 		for (int i = 0; i < itemsOrdered.size(); i++) {
 			if (itemsOrdered.get(i).getTitle().equals(title)) {
-				str = itemsOrdered.get(i).toString();
+				return itemsOrdered.get(i);
 			}
 		}
-		System.out.println(str);
+		return null;
 	}
+	
+	public void sortByTitle() {
+		Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+	}
+	
+	public void sortByCost() {
+		Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+	}
+	
+	
 }

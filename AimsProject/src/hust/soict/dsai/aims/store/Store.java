@@ -7,6 +7,9 @@ import hust.soict.dsai.aims.media.Media;
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
+	public int getNumber() {
+		return itemsInStore.indexOf(itemsInStore.getLast());
+	}
 	public void addMedia(Media media) {
 		if (itemsInStore.contains(media)) {
 			System.out.println("This media is already in the order!");
@@ -41,13 +44,10 @@ public class Store {
 		System.out.println(str);
 	}
 	
-	public void searchByTitle(String title) {
-		String str = "No disk found.";
+	public Media searchByTitle(String title) {
 		for (Media media: itemsInStore) {
-			if (media.getTitle().equals(title)) {
-				str = media.toString();
-			}
+			if (media.getTitle().equals(title)) return media;
 		}
-		System.out.println(str);
+		return null;
 	}
 }
