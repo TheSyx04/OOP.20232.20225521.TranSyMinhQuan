@@ -9,7 +9,7 @@ public class DigitalVideoDisc extends Disc implements Playable{
 		this(id, title, null, null, 0, 0.0f);
 	}
 	public DigitalVideoDisc(int id, String title, String category, float cost) {
-		this(id, title, category, null, 0, 0.0f);
+		this(id, title, category, null, 0, cost);
 	}
 	public DigitalVideoDisc(int id, String title, String category, String director, float cost) {
 		this(id, title, category, director, 0, cost);

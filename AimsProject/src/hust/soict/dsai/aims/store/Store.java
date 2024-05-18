@@ -30,9 +30,12 @@ public class Store {
 	}
 	
 	public void checkStore() {
-		for(Media media: itemsInStore) {
-			System.out.println(media.toString());
+		System.out.println("***********************STORE***********************");
+		System.out.println("Ordered Items:");
+		for (int i = 0; i < itemsInStore.size(); i++) {
+			System.out.println(itemsInStore.get(i).toString());
 		}
+		System.out.println("***************************************************");
 	}
 	
 	public void searchByID(int id) {
@@ -51,4 +54,6 @@ public class Store {
 		}
 		return null;
 	}
+	
+
 }

@@ -82,9 +82,10 @@ public class Aims {
                     do {
                         storeMenu();
                         storeOpt = sc.nextInt();
+                        sc.nextLine();
                         switch (storeOpt) {
                             case 1: //1. See a media’s details
-                                System.out.print("Enter the media's title: ");
+                                System.out.println("Enter the media's title: ");
                                 String title = sc.nextLine();
                                 Media media = store.searchByTitle(title);
                                 if (media != null) {
@@ -92,6 +93,7 @@ public class Aims {
                                     do {
                                         mediaDetailsMenu();
                                         mediaOpt = sc.nextInt();
+                                        sc.nextLine();
                                         switch (mediaOpt) {
                                             case 1: // Add to cart
                                             	cart.addMedia(media);
@@ -167,9 +169,10 @@ public class Aims {
                     break;
 
                 case 2: // Update store
-                	updateStoreMenu();
-                    updateOpt = sc.nextInt();
                     do{
+                    	updateStoreMenu();
+                        updateOpt = sc.nextInt();
+                        sc.nextLine();
                         switch (updateOpt) {
                             case 1: // Add media to store
                             	Media media;
@@ -200,8 +203,10 @@ public class Aims {
                                 
                             case 0: // Back
                             	break;
+                            	
                             default: 
                             	System.out.println("Invalid option! Please choose a number: 0-1-2");
+                            	break;
                         }
                     } while (updateOpt != 0);
                     break;
@@ -211,15 +216,19 @@ public class Aims {
                     do {
                         cartMenu();
                         cartOpt = sc.nextInt();
+                        sc.nextLine();
                         switch (cartOpt) {
                             case 1: // 1. Filter medias in cart
                                 Media media;
                             	System.out.println("1. Filter by id\n2. Filter by title\nPlease choose a number: 1-2");
                                 filterOpt = sc.nextInt();
+                                sc.nextLine();
                                 if (filterOpt == 1) {
+                                	System.out.println("Enter id: ");
                                     int filterId = sc.nextInt();
                                     media = cart.searchByID(filterId);
                                 } else {
+                                	System.out.println("Enter title: ");
                                     String filterTitle = sc.nextLine();
                                     media = cart.searchByTitle(filterTitle);
                                 }
@@ -232,8 +241,9 @@ public class Aims {
                                 break;
                                 
                             case 2: // 2. Sort medias in cart
-                                System.out.println("1. Sort by title\n 2. Sort by cost\n Please choose a number: 1-2");
+                                System.out.println("1. Sort by title\n2. Sort by cost\nPlease choose a number: 1-2");
                                 sortOpt = sc.nextInt();
+                                sc.nextLine();
                                 if (sortOpt == 1) {
                                     cart.sortByTitle();
                                 } else {
