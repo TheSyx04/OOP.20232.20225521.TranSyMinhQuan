@@ -25,7 +25,7 @@ public class Track implements Playable{
 	}
 	
 	@Override
-	public boolean equals(String title) {
+	public boolean equals(String title, int length) {
 		
 	}
 }
