@@ -1,7 +1,11 @@
-package hust.soict.dsai.aims.media;
+package main;
 
 import java.util.Scanner;
 
+import hust.soict.dsai.aims.media.Cart;
+import hust.soict.dsai.aims.media.CompactDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
