@@ -8,8 +8,9 @@ public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
 	public int getNumber() {
-		return itemsInStore.indexOf(itemsInStore.getLast());
+		return itemsInStore.indexOf(itemsInStore.getLast()) + 1;
 	}
+	
 	public void addMedia(Media media) {
 		if (itemsInStore.contains(media)) {
 			System.out.println("This media is already in the order!");
