@@ -7,9 +7,14 @@ import hust.soict.dsai.aims.media.Media;
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+	
 	public int getNumber() {
 		return itemsInStore.indexOf(itemsInStore.getLast()) + 1;
 	}
+	
 	
 	public void addMedia(Media media) {
 		if (itemsInStore.contains(media)) {
