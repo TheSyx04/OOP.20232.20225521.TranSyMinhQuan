@@ -1,0 +1,22 @@
+1. Which classes are aggregates of other classes? Checking all constructors of whole classes if they initialize for their parts?
+- The Cart and Store classes are the aggregates of the Media class. 
+- The CompactDisc class is the aggregate of the Track class.
+
+2. If the passing object is not an instance of Media, what happens?
+If the passing object is not an instance of Media, the method returns false.
+
+3. Iterate through the list and print out the information of the media by using toString() method. Observe what happens and explain in detail.
+- The CD and Book classes haven’t overridden the toSring() method, so it returns the id of the object that the reference points to.
+- On the other hand, the DVD class has overridden the toString() method, so it returns the good-looking format
+
+4. What class should implement the Comparable interface?
+It should be class Media.
+
+5. In those classes, how should you implement the compareTo() method be to reflect the ordering that we want?
+We should return o1.getTitle() < o2.getTitle and in case the titles are the same, we should also consider o1.getCost() > o2.getCost().
+
+6. Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+We can’t because only 1 can be used.
+
+7. Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+We can modified the compareTo() method to satisfy whatever it requires.
