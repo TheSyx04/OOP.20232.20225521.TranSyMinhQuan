@@ -3,12 +3,19 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	
 	public int getNumber() {
 		return itemsOrdered.indexOf(itemsOrdered.getLast()) + 1;
+	}
+	
+	public ObservableList<Media> getItemsOrdered() {
+		return itemsOrdered;
 	}
 	
 	public float totalCost() {
@@ -74,6 +81,5 @@ public class Cart {
 	public void sortByCost() {
 		Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
 	}
-	
-	
+
 }
