@@ -47,10 +47,15 @@ public abstract class Media {
 	}
 
 	public boolean equals(Object o) {
-		if (o == this) return true;
-		if (!(o instanceof Media)) return false;
-		Media m = (Media) o;
-		return m.getTitle() == title;
+		try {
+			if (!(o instanceof Media)) return false;
+			Media m = (Media) o;
+			return m.getTitle() == title;
+		} catch (NullPointerException e) {
+			return false;
+		} catch (ClassCastException e) {
+			return false;
+		}
 	}
 
 }

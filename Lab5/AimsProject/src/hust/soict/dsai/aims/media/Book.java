@@ -16,6 +16,10 @@ public class Book extends Media{
 		this.authors = authors;
 	}
 
+	public Book(String title, String category, float cost) {
+		
+	}
+
 	public void addAuthor(String authorName) {
 		if (authors.contains(authorName)) {
 			System.out.println("The author is already in the book!");

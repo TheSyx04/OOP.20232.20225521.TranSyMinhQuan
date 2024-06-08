@@ -2,6 +2,7 @@ package hust.soict.dsai.aims.screen;
 
 import java.awt.Button;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
@@ -9,6 +10,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,6 +38,9 @@ public class CartScreenController {
 	@FXML
 	private Button btnRemove;
 	
+	@FXML
+	private Label costLabel;
+	
 	public CartScreenController(Cart cart) {
 		super();
 		this.cart = cart;
@@ -50,6 +56,8 @@ public class CartScreenController {
 		colMediaCost.setCellValueFactory(
 				new PropertyValueFactory<Media, Float>("cost"));
 		tblMedia.setItems(this.cart.getItemsOrdered());
+		
+		costLabel.setText(cart.totalCost() + " $");
 		
 		btnPlay.setVisible(false);
 		btnRemove.setVisible(false);
@@ -71,6 +79,27 @@ public class CartScreenController {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		cart.removeMedia(media);
 	}
+	
+    @FXML
+    void btnPlayPressed(ActionEvent event) {
+        try {
+            Media media = tblMedia.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, ((Playable) media).play());
+            alert.showAndWait();
+        } catch (PlayerException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
+            alert.showAndWait();
+        }
+
+    }
+    
+    @FXML
+    void placeOrderPressed(ActionEvent event) {
+        cart = new Cart();
+        costLabel.setText(cart.totalCost() + " $");
+        tblMedia.setItems(null);
+    }
 	
 	void updateButtonBar(Media media) {
 		btnRemove.setVisible(true);

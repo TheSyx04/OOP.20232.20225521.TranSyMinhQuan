@@ -2,6 +2,7 @@ package hust.soict.dsai.aims.media;
 
 import java.util.Scanner;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
@@ -62,7 +63,7 @@ public class Aims {
 		System.out.println("Please choose a number: 0-1-2");
 		}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PlayerException {
 		Scanner sc = new Scanner(System.in);
 		
 		Store store = new Store();

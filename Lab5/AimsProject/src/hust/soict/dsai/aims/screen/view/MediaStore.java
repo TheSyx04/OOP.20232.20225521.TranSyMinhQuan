@@ -1,4 +1,4 @@
-package hust.soict.dsai.aims.screen;
+package hust.soict.dsai.aims.screen.view;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
