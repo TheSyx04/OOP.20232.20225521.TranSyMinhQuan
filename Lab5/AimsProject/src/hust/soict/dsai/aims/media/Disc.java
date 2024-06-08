@@ -34,4 +34,8 @@ public class Disc extends Media{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Disc(String title, String category, float cost) {
+		// TODO Auto-generated constructor stub
+	}
+
 }

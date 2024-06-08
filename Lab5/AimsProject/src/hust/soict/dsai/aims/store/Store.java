@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
@@ -59,6 +60,19 @@ public class Store {
 		}
 		return null;
 	}
+	
+	 public void playMedia(String title) throws PlayerException {
+	        for (Media d : itemsInStore) {
+	            if (d.getTitle().equals(title)) {
+	                try {
+	                    ((Playable)d).play();
+	                    break;
+	                } catch (PlayerException e) {
+	                    throw e;
+	                }
+	            }
+	        }
+	    }
 	
 
 }

@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -81,5 +82,13 @@ public class Cart {
 	public void sortByCost() {
 		Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
 	}
+	
+    public void playMedia(String title) throws PlayerException {
+        for (Media d : itemsOrdered) {
+            if (d.getTitle().equals(title)) {
+                ((Playable)d).play();
+            }
+        }
+    }
 
 }
