@@ -31,6 +31,10 @@ public class CompactDisc extends Disc implements Playable{
 		this.tracks = tracks;
 	}
 
+	public CompactDisc(String title, String category, float cost, int length, String director, String artist) {
+		super(title, category, cost, length, director, artist);
+	}
+
 	public void addTrack(Track track) {
 		if (tracks.contains(track)) {
 			System.out.println("The track is already in the list!");
